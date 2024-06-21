@@ -25,9 +25,19 @@ async function getAllUser(req,res){
     }
 }
 
+async function deleteUser(req,res){
+    try {
+        const result = await User.findByIdAndDelete(req.params.id);
+        return res.status(200).send({message: "user deleted successfully", result});
+    } catch (error) {
+        return res.status(500).send(error);
+    }
+}
+
 
 
 module.exports = {
     addUser,
-    getAllUser
+    getAllUser,
+    deleteUser
 }
