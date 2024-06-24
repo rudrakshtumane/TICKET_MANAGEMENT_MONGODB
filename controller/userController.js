@@ -34,10 +34,20 @@ async function deleteUser(req,res){
     }
 }
 
+async function updateUser(req,res){
+    try {
+        const result = await User.findByIdAndUpdate(req.params.id, req.body, {new:true});
+        return res.status(200).send({message: "user updated successfully", result});
+    } catch (error) {
+        return res.status(500).send(error);
+    }
+}
+
 
 
 module.exports = {
     addUser,
     getAllUser,
-    deleteUser
+    deleteUser,
+    updateUser
 }

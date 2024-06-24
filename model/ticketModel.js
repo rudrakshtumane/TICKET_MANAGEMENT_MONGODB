@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const ticket = mongoose.Schema({
+const ticketSchema = mongoose.Schema({
     tickettype:{type:String, required:true},
     ticketstatus:{type:String, required:true},
     tickettitle:{type:String, required:true},
@@ -38,4 +38,4 @@ const ticket = mongoose.Schema({
 
 })
 
-module.exports = mongoose.model('Ticket', ticket);
+module.exports = mongoose.model('Ticket', ticketSchema);
